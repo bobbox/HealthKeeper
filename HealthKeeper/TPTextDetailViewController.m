@@ -95,8 +95,7 @@
 //            
 //            NSURL *url = [NSURL fileURLWithPath:filepath];
 //            
-//            NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//            
+//            NSURLRequest *request = [NSURLRequest requestWithURL:url];          
 //            [self.myWebView loadRequest:request];
         NSDictionary *dic1 = [dic objectForKey:@"bean"];
         NSString *urlStr = [NSString stringWithFormat:@"http://120.27.36.130%@",[dic1 objectForKey:@"readerUrl"]];
