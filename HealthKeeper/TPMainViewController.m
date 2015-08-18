@@ -98,9 +98,14 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     [self countScrollViewHeight];
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    self.tabBarController.tabBar.hidden = NO;
+}
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear: animated];
-     self.tabBarController.tabBar.hidden = NO;
+    // self.tabBarController.tabBar.hidden = NO;
 
 }
 - (void)didReceiveMemoryWarning {
@@ -111,7 +116,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     NSDictionary *dic = [self.myHealthText.myDataAry objectAtIndex:row];
     TPTextDetailViewController *vc = [[TPTextDetailViewController alloc]init];
     vc.myDataDic = dic;
-     self.hidesBottomBarWhenPushed = YES;
+   //  self.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
     
 }

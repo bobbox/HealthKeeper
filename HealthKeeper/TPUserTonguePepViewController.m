@@ -47,7 +47,7 @@
 - (IBAction)doNextStep:(id)sender {
     UIImage *img = [TPHttpRequest appDelegate].myTongueImg;
     if (img==nil){
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"清先进行舌拍" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"请先进行舌拍" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
         [alert show];
         return;
     }
@@ -61,7 +61,6 @@
     TPTakeTonguePhotoViewController *vc = [[TPTakeTonguePhotoViewController alloc]init];
     vc.delegate = vc;
     [self presentViewController:vc animated:YES completion:nil];
-
 }
 - (IBAction)showResult:(id)sender {
     TPUserResultViewController *vc = [[TPUserResultViewController alloc]init];

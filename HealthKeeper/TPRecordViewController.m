@@ -93,4 +93,7 @@
     cell.cellIndexLabel.text = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
     return cell;
 }
+- (IBAction)back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

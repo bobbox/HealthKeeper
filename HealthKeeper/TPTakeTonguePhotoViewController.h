@@ -55,4 +55,6 @@
 @property (nonatomic) NSInteger selectedNum;
 @property (nonatomic,strong) NSString *myPersonIdStr;
 
+
+-(BOOL)uploadPhoto;
 @end

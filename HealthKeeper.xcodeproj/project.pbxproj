@@ -105,6 +105,8 @@
 		18C36CCB1B60FA9A0049D149 /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C36CC11B60FA9A0049D149 /* SDWebImagePrefetcher.m */; };
 		18C36CCC1B60FA9A0049D149 /* UIButton+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C36CC31B60FA9A0049D149 /* UIButton+WebCache.m */; };
 		18C36CCD1B60FA9A0049D149 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 18C36CC51B60FA9A0049D149 /* UIImageView+WebCache.m */; };
+		18DE79E61B83282C00C4C4C4 /* TPDetectWithImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18DE79E41B83282C00C4C4C4 /* TPDetectWithImageViewController.m */; };
+		18DE79E71B83282C00C4C4C4 /* TPDetectWithImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DE79E51B83282C00C4C4C4 /* TPDetectWithImageViewController.xib */; };
 		18E1B0F61B733B81008D45C9 /* tapTiaoYangSelected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 18E1B0F51B733B81008D45C9 /* tapTiaoYangSelected@2x.png */; };
 		18EA8EE71B7494490012C5DF /* SLNumberPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 18EA8EE51B7494490012C5DF /* SLNumberPickerView.m */; };
 		18EA8EE81B7494490012C5DF /* SLNumberPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18EA8EE61B7494490012C5DF /* SLNumberPickerView.xib */; };
@@ -346,6 +348,9 @@
 		18C36CC31B60FA9A0049D149 /* UIButton+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WebCache.m"; sourceTree = "<group>"; };
 		18C36CC41B60FA9A0049D149 /* UIImageView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WebCache.h"; sourceTree = "<group>"; };
 		18C36CC51B60FA9A0049D149 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
+		18DE79E31B83282C00C4C4C4 /* TPDetectWithImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPDetectWithImageViewController.h; sourceTree = "<group>"; };
+		18DE79E41B83282C00C4C4C4 /* TPDetectWithImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPDetectWithImageViewController.m; sourceTree = "<group>"; };
+		18DE79E51B83282C00C4C4C4 /* TPDetectWithImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TPDetectWithImageViewController.xib; sourceTree = "<group>"; };
 		18E1B0F51B733B81008D45C9 /* tapTiaoYangSelected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tapTiaoYangSelected@2x.png"; sourceTree = "<group>"; };
 		18EA8EE41B7494490012C5DF /* SLNumberPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLNumberPickerView.h; sourceTree = "<group>"; };
 		18EA8EE51B7494490012C5DF /* SLNumberPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLNumberPickerView.m; sourceTree = "<group>"; };
@@ -923,6 +928,9 @@
 				189484541B81CA8300C65BF9 /* TPRecordViewController.h */,
 				189484551B81CA8300C65BF9 /* TPRecordViewController.m */,
 				189484561B81CA8300C65BF9 /* TPRecordViewController.xib */,
+				18DE79E31B83282C00C4C4C4 /* TPDetectWithImageViewController.h */,
+				18DE79E41B83282C00C4C4C4 /* TPDetectWithImageViewController.m */,
+				18DE79E51B83282C00C4C4C4 /* TPDetectWithImageViewController.xib */,
 				189484571B81CA8300C65BF9 /* TPTestAnswerTableViewCell.h */,
 				189484581B81CA8300C65BF9 /* TPTestAnswerTableViewCell.m */,
 				189484591B81CA8300C65BF9 /* TPTestAnswerTableViewCell.xib */,
@@ -1066,6 +1074,7 @@
 				1885ADFE1B59FB3A008F7506 /* popBack@2x.png in Resources */,
 				18936D9C1B71B79F008ABAFA /* 巳时.jpg in Resources */,
 				1820F2941B7997F00082B43C /* userInfoImg.png in Resources */,
+				18DE79E71B83282C00C4C4C4 /* TPDetectWithImageViewController.xib in Resources */,
 				79F13AE41B7B5EA000F02A89 /* textTopImg.png in Resources */,
 				18936DA11B71B79F008ABAFA /* 酉时.jpg in Resources */,
 				794D57ED1B6B9F160032A227 /* Resource.bundle in Resources */,
@@ -1161,6 +1170,7 @@
 				1893F0F81B79D0C000E0EF54 /* TPTestMapView.m in Sources */,
 				79DFB5471B59C0DD00228F26 /* TPHttpRequest.m in Sources */,
 				18C36CCC1B60FA9A0049D149 /* UIButton+WebCache.m in Sources */,
+				18DE79E61B83282C00C4C4C4 /* TPDetectWithImageViewController.m in Sources */,
 				18936D861B71B051008ABAFA /* UIScrollView+MJExtension.m in Sources */,
 				79EFA0511B75DF7F00399425 /* TPTakeTonguePhotoViewController.m in Sources */,
 				79EFA0741B75EBF100399425 /* TPUserSettingViewController.m in Sources */,

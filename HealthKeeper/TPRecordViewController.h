@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TPTapSubViewController.h"
-@interface TPRecordViewController : TPTapSubViewController<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
+#import "TPTabSubViewController.h"
+@interface TPRecordViewController : TPTabSubViewController<UITableViewDataSource,UITableViewDelegate,UICollectionViewDataSource,UICollectionViewDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *myAnswerTableView;
 @property (strong, nonatomic) IBOutlet UICollectionView *myCollectionView;
 
+- (IBAction)back:(id)sender;
 
 @end

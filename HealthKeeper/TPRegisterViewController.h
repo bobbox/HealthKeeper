@@ -19,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *myBgImageView;
 @property (nonatomic,strong)UIImage *myImg;
 @property (strong, nonatomic) IBOutlet UIButton *myCodeBtn;
+- (IBAction)next:(id)sender;
 
 @end

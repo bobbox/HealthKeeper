@@ -32,6 +32,7 @@
     NSString *timeStr = [self getDateStringFormSec:second];
     cell.cellTimeLabel.text = timeStr;
     [cell.cellImageView setImageWithURL:[NSURL URLWithString:[dic objectForKey:@"image"]]];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 #pragma  mark talblevieW delegate

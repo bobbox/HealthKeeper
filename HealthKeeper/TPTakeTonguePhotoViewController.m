@@ -193,7 +193,7 @@
             UIGraphicsEndImageContext();
             self.myShowImage = [self imageFromImage:resultingImage inRect:CGRectMake(95, 275, 130, 130)];
            // [HealthText appDelegate].tongueImage = self.myShowImage;
-             [self performSelectorInBackground:@selector(commitMissionCompleted) withObject:nil];
+          //   [self performSelectorInBackground:@selector(commitMissionCompleted) withObject:nil];
             
             [self dismissViewControllerAnimated:NO completion:nil];
             [self.finishedDelegate photoFinished];
@@ -270,12 +270,14 @@
     
     //        myUrl =[NSString  stringWithFormat: @"%@hdfs!tongueHandle.action?mr.userName=%@",TONGUEADDRESS,username];
    // myUrl =[NSString  stringWithFormat: @"%@tongue/uploadAndAnalyze?username=aa",TPSERVERADDRESS];
-    NSString *phoneNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"phoneNum"];
-    if (phoneNum==nil)
-        phoneNum = DEFINEUSERID;
-    
-   // myUrl =[NSString  stringWithFormat: @"%@?username=%@",TPSERVERADDRESS,phoneNum];
-    myUrl =[NSString  stringWithFormat: @"%@?phoneNum=15296611713",TPSERVERADDRESS];
+    NSString *phoneNum = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if (phoneNum==nil){
+        [TPHttpRequest appDelegate].myTongueImg = self.myTongueImg;
+        return YES;
+    }
+    else {
+    myUrl =[NSString  stringWithFormat: @"%@?username=%@",TPSERVERADDRESS,phoneNum];
+    //myUrl =[NSString  stringWithFormat: @"%@?phoneNum=15296611713",TPSERVERADDRESS];
     NSLog(@"%@",myUrl);
     NSURL *url = [NSURL URLWithString: myUrl];
     
@@ -328,9 +330,11 @@
         [[NSUserDefaults standardUserDefaults] setObject:imageData forKey:@"tongueImage"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
-   }
+    }
+   
     else
         return NO;
+    }
 }
 -(void)commitMissionCompleted{
     if(self.myAllTaskDic!=nil){

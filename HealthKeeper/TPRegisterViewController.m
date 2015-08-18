@@ -174,4 +174,10 @@
 }
 
 
+- (IBAction)next:(id)sender {
+    TPRegisterPasswordViewController *vc = [[TPRegisterPasswordViewController alloc]init];
+    vc.myImg = self.myImg;
+    vc.userPhoneNum = self.telField.text;
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

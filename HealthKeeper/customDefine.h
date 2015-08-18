@@ -16,6 +16,8 @@
 
 //#define TPSERVERADDRESS @"http://120.27.36.130:8080/health/"
 
+//用户注册成功后上传用户身高体重等数据
+#define USER_UPLOAD_INFO_URL @"http://120.27.36.130/MicroHealth/user/register_info"
 
 #define TPSERVERADDRESS @"http://120.27.36.130:80/TonguePepSys/tongue/analyze"
 #define  LOGINADDRESS @"http://120.27.36.130/MicroHealth/user/login"

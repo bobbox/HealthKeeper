@@ -11,6 +11,7 @@
 #import "UIImageView+WebCache.h"
 #import "TPUserHabitCollectionViewCell.h"
 #import "TPRecordViewController.h"
+#import "TPDetectWithImageViewController.h"
 @interface TPTextDetailViewController ()
 
 @end
@@ -130,7 +131,7 @@
 }
 
 - (IBAction)doTest:(id)sender {
-    TPRecordViewController *vc = [[TPRecordViewController alloc]init];
+    TPDetectWithImageViewController *vc = [[TPDetectWithImageViewController alloc]init];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

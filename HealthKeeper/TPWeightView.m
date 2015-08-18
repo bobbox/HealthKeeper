@@ -86,7 +86,7 @@
     
     
     scrollView.delegate = self;
-    scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width*146, scrollView.bounds.size.height);
+    scrollView.contentSize = CGSizeMake(scrollView.bounds.size.width*151, scrollView.bounds.size.height);
     scrollView.pagingEnabled = YES;
     scrollView.clipsToBounds = NO;
     
@@ -94,11 +94,11 @@
     
     // Add a view behind all of the numbers that is extremely tall and uses a tiled background image.
     UIView* backgroundView = [[UIView alloc] initWithFrame:CGRectZero];
-    CGRect frame = (CGRect){CGPointMake(0, 0), CGSizeMake(scrollView.bounds.size.width*150, scrollView.bounds.size.height)};
+    CGRect frame = (CGRect){CGPointMake(-14*5, 0), CGSizeMake(scrollView.bounds.size.width*155, scrollView.bounds.size.height)};
     backgroundView.frame = frame;
     [scrollView insertSubview:backgroundView atIndex:0];
     
-    for (int i = 0; i < 150; i++) {
+    for (int i = 0; i < 155; i++) {
               UIView *bgView = [[UIView alloc] initWithFrame:CGRectMake(14*i, scrollView.frame.origin.y, 50, 14)];
         bgView.backgroundColor = [UIColor clearColor];
         UIView *keDuView = [[UIView alloc]initWithFrame:CGRectMake(6, 0, 2, 20)];
