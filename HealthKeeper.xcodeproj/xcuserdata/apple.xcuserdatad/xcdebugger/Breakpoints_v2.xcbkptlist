@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HealthKeeper/TPRegisterPasswordViewController.m"
-            timestampString = "461576160.010219"
+            timestampString = "461658171.068997"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "-finishRegister:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HealthKeeper/TPRegisterPasswordViewController.m"
-            timestampString = "461578109.213236"
+            timestampString = "461661375.089204"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "-updateUserInfo"
             landmarkType = "5">
          </BreakpointContent>
@@ -105,13 +105,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HealthKeeper/TPRegisterViewController.m"
-            timestampString = "461578731.311667"
+            filePath = "HealthKeeper/TPRegisterPasswordViewController.m"
+            timestampString = "461663643.794685"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "178"
-            endingLineNumber = "178"
-            landmarkName = "-next:"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
+            landmarkName = "-updateUserInfo"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

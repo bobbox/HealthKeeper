@@ -26,6 +26,10 @@
     self.myBgImageView.image = self.myImg;
     self.codeCount = 60;
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(doHidden)];
+    [self.view addGestureRecognizer:tap ];
+    
+    
 
 }
 
@@ -34,6 +38,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)doHidden{
+    [self.view endEditing:YES];
+}
 - (IBAction)showPasswordPage:(id)sender {
     [self.view endEditing:YES];
     
@@ -172,7 +179,6 @@
          }];
     }
 }
-
 
 - (IBAction)next:(id)sender {
     TPRegisterPasswordViewController *vc = [[TPRegisterPasswordViewController alloc]init];

@@ -92,15 +92,29 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     self.myLoginBtn.layer.borderWidth = 1.0;
     self.myLoginBtn.layer.masksToBounds = YES;
     
-    [self configMissionListUpView];
-    [self getMasterList];
-    [self getHealthBookList];
-    [self countScrollViewHeight];
+    [self performSelectorInBackground:@selector(getPageHttpData) withObject:nil];
     
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    
+   NSDictionary *dic =  [[NSUserDefaults standardUserDefaults]  objectForKey:@"userRegisterDic"];
+    if (dic!=nil){
+        NSDictionary *beanDic = [dic  objectForKey:@"bean"];
+        self.myLoginBtn.hidden = YES;
+        self.myBMILabel.text =  [NSString stringWithFormat:@"您的BMI指数:%@ %@",[beanDic objectForKey:@"bmi"],[beanDic objectForKey:@"bmiResult"]];
+        self.myBMIDesLabel.text = @"test";
+        self.myDoTiaoYangBtn.hidden = YES;
+        
+        
+    }
+    else{
+        self.myLoginBtn.hidden = NO;
+        self.myBMILabel.text = @"";
+        self.myBMIDesLabel.text = @"登录后获得陪伴一生的健康档案";
+        self.myDoTiaoYangBtn.hidden = NO;
+    }
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -112,6 +126,13 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)getPageHttpData{
+    [self configMissionListUpView];
+    [self getMasterList];
+    [self getHealthBookList];
+    [self countScrollViewHeight];
+}
+
 -(void)cellSelectedWithRow:(int)row{
     NSDictionary *dic = [self.myHealthText.myDataAry objectAtIndex:row];
     TPTextDetailViewController *vc = [[TPTextDetailViewController alloc]init];
@@ -237,6 +258,8 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     self.myShiChenImageTipLabel.text = [tipAry objectAtIndex:shiChen];
     
 }
+
+
 -(int)getNowShiChenIndex{
     NSDate *date = [NSDate date];
     NSDateFormatter *formatter  = [[NSDateFormatter  alloc]init];

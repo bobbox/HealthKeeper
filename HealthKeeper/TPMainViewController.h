@@ -36,6 +36,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *myShiChenImageShiChenTimeLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *myShiChenImageView;
 @property (strong, nonatomic) IBOutlet UILabel *myShiChenImageTipLabel;
+@property (strong, nonatomic) IBOutlet UILabel *myBMILabel;
+@property (strong, nonatomic) IBOutlet UILabel *myBMIDesLabel;
 
 - (IBAction)doLogin:(id)sender;
 
