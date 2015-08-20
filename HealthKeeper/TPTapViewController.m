@@ -30,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden = YES;
     self.myNextDayViewController = [[TPNextDayViewController alloc]init];
     self.myNextDayViewController.view.frame = self.view.frame;
     [self.view addSubview:self.myNextDayViewController.view];

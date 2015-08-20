@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TPUserSettingViewController : UIViewController
+- (IBAction)quit:(id)sender;
 
 @end

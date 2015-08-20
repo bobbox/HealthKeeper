@@ -53,19 +53,23 @@
     
     NSString *bmiStr = [NSString stringWithFormat:@"%0.2f",weightStr.floatValue/(heightStr.floatValue/100.0*heightStr.floatValue/100)];
     
-    NSString *BMIResultStr = @"";
-    if (bmiStr.floatValue<18.5)
-    BMIResultStr= @"过轻";
-  else   if (bmiStr.floatValue>=18.5&&bmiStr.floatValue<25)
-        BMIResultStr = @"正常";
-    else
-        BMIResultStr = @"超重";
+    NSDictionary *userRegisgerDic = [[NSUserDefaults standardUserDefaults] objectForKey:@"userRegisterDic"];
+    NSDictionary *registerDic = [userRegisgerDic objectForKey:@"bean"];
+    
+    NSString *BMIResultStr = [registerDic objectForKey:@"bmiType"];
+//    if (bmiStr.floatValue<18.5)
+//    BMIResultStr= @"过轻";
+//  else   if (bmiStr.floatValue>=18.5&&bmiStr.floatValue<25)
+//        BMIResultStr = @"正常";
+//    else
+//        BMIResultStr = @"超重";
     
     self.myBMILabel.text = bmiStr;
     self.myShowBMILabel.text = [NSString stringWithFormat:@"您的BMI指数：%@  %@",bmiStr,BMIResultStr];
     
     NSString *locationStr = [[NSUserDefaults standardUserDefaults] objectForKey:@"place"];
     self.myLocationLabel.text = locationStr;
+    self.myBMIResultLabel.text = [registerDic objectForKey:@"bmiResult"];
     
     
 
@@ -178,4 +182,8 @@
     //    [self.myCollectionView reloadData];
 }
 
+- (IBAction)goMain:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:NO];
+  
+}
 @end

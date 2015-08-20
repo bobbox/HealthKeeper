@@ -54,9 +54,28 @@
         [self.myBgImageView setImageWithURL:[NSURL URLWithString:urlStr]];
         [self.myTimer invalidate];
     }
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if (username!=nil){
+        //可能需要登录获取数据
+        
+        TPTapViewController *vc = [[TPTapViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    
+    
+    
  [[PgyManager sharedPgyManager] checkUpdateWithDelegete:self selector:@selector(versionUpdate:)];
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+     NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if (username!=nil){
+        //可能需要登录获取数据
+        
+        TPTapViewController *vc = [[TPTapViewController alloc]init];
+        [self.navigationController pushViewController:vc animated:NO];
+    }
+}
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
     if (![TPHttpRequest netReached]){
@@ -116,7 +135,7 @@
         //登录
         if (phoneNum!=nil&&phoneNum.length!=0){
             //先要登录
-            NSString *postStr = [NSString stringWithFormat:@"phoneNum=%@&password=%@",phoneNum,passWordStr];
+            NSString *postStr = [NSString stringWithFormat:@"username=%@&password=%@",phoneNum,passWordStr];
             
             //        NSString *childName = [postStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
             

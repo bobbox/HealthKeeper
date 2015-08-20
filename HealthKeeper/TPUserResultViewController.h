@@ -38,4 +38,6 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *myScollView;
 @property (strong, nonatomic) IBOutlet UIButton *myBottomBtn;
 
+@property (strong, nonatomic) IBOutlet UILabel *myBMIResultLabel;
+- (IBAction)goMain:(id)sender;
 @end

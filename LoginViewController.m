@@ -63,16 +63,14 @@
     
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:newData options:NSJSONReadingMutableLeaves error:nil];
     NSString *result = [dic objectForKey:@"status"];
-    if ([result isEqualToString:@"LOGIN_SUCCESS"]){
+    if ([result isEqualToString:@"SUCCESS"]){
         
-        [[NSUserDefaults standardUserDefaults] setObject:self.myPhoneNumTextField.text forKey:@"phoneNum"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.myPhoneNumTextField.text forKey:@"username"];
         [[NSUserDefaults standardUserDefaults] setObject:self.myPassWordTextField.text  forKey:@"password"];
         [[NSUserDefaults standardUserDefaults] setObject:dic  forKey:@"userDic"];
         
         
-        TPMainViewController *vc = [[TPMainViewController alloc]init];
-        [self.navigationController pushViewController:vc animated:YES];
-        
+        [self.navigationController popViewControllerAnimated:YES];
 //        [[NSUserDefaults standardUserDefaults] setObject:self.myPhoneNumTextField.text forKey:@"phoneNum"];
 //        [[NSUserDefaults standardUserDefaults] setObject:self.myPassWordTextField.text  forKey:@"password"];
 //        [[NSNotificationCenter defaultCenter] postNotificationName:@"登录完成" object:nil];

@@ -69,6 +69,8 @@
 #define READ_TEXT_LIST_URL @"http://120.27.36.130/MicroHealth/article/list"
 //获取养生文章列表
 #define READ_TEXT_DETAIL_URL @"http://120.27.36.130/MicroHealth/article/get"
+//获取养生好习惯列表
+#define USER_HEALTH_HABIT_LIST_URL @""
 #define kUIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \

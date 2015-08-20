@@ -92,14 +92,17 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     self.myLoginBtn.layer.borderWidth = 1.0;
     self.myLoginBtn.layer.masksToBounds = YES;
     
-    [self performSelectorInBackground:@selector(getPageHttpData) withObject:nil];
+    
     
 }
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     self.tabBarController.tabBar.hidden = NO;
+    [self performSelectorInBackground:@selector(getPageHttpData) withObject:nil];
     
    NSDictionary *dic =  [[NSUserDefaults standardUserDefaults]  objectForKey:@"userRegisterDic"];
+    NSString *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    if (username!=nil){
     if (dic!=nil){
         NSDictionary *beanDic = [dic  objectForKey:@"bean"];
         self.myLoginBtn.hidden = YES;
@@ -110,11 +113,19 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
         
     }
     else{
+        self.myLoginBtn.hidden = YES;
+        self.myBMILabel.text = @"";
+        self.myBMIDesLabel.text = @"";
+        self.myDoTiaoYangBtn.hidden = YES;
+    }
+    }
+    else{
         self.myLoginBtn.hidden = NO;
         self.myBMILabel.text = @"";
         self.myBMIDesLabel.text = @"登录后获得陪伴一生的健康档案";
         self.myDoTiaoYangBtn.hidden = NO;
     }
+
 }
 
 -(void)viewDidAppear:(BOOL)animated{
@@ -314,7 +325,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
         // 执行请求
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:nil error:nil];
 
-    NSString *STR = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
+  //  NSString *STR = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
     if (data!=nil){
     NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
     if (dic!=nil){
@@ -339,7 +350,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
     
     NSString *postStr = [NSString stringWithFormat:@"page=%i&timeText=%@",self.readListPageNum,shichen];
     
-    NSString *childName = [postStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+  //  NSString *childName = [postStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSData *requestData = [postStr dataUsingEncoding:NSUTF8StringEncoding allowLossyConversion:NO];
     
     // 请求的URL地址
@@ -363,7 +374,8 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
             NSArray *ary = [dic objectForKey:@"bean"];
             if (ary.count!=0){
             [self.myHealthText.myDataAry addObjectsFromArray:ary];
-            [self.myHeathMasterCollectionView reloadData];
+            [self.myReadTextListTableView reloadData];
+            
             self.readListPageNum++;
             }
                 
@@ -374,7 +386,7 @@ NSString *const MJTableViewCellIdentifier = @"Cell";
 //根据展示内容更改scrollview的长度
 -(void)countScrollViewHeight{
     
-    self.myReadTextListTableView.frame = CGRectMake(self.myReadTextListTableView.frame.origin.x, self.myReadTextListTableView.frame.origin.y, self.myReadTextListTableView.frame.size.width, (80*abs(self.myHealthText.myDataAry.count)));
+    self.myReadTextListTableView.frame = CGRectMake(self.myReadTextListTableView.frame.origin.x, self.myReadTextListTableView.frame.origin.y, self.myReadTextListTableView.frame.size.width, (80*abs((int)self.myHealthText.myDataAry.count)));
     
     self.myTiaoYangScrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.myMissionBgView.frame.origin.y+self.myMissionBgView.frame.size.height+20+self.myMasterBgView.frame.size.height+20+self.myShiChenView.frame.size.height+20+self.myReadTextListTableView.frame.size.height);
 }

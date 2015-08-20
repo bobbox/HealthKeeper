@@ -17,6 +17,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.navigationController.navigationBarHidden = YES;
+    self.title = @"个人设置";
+
+    
+    UIBarButtonItem *barBtn = [[UIBarButtonItem alloc] initWithImage:nil style:UIBarButtonItemStyleBordered target:self action:@selector(quit:) ];
+    self.navigationItem.rightBarButtonItem = barBtn;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,4 +41,11 @@
 }
 */
 
+- (IBAction)quit:(id)sender {
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"username"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"password"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"userRegisterDic"];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"tongueDic"];
+   
+}
 @end

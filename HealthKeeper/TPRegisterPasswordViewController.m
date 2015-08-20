@@ -70,10 +70,10 @@
 }
 
 - (IBAction)doNextStep:(id)sender {
-    [self MBProgressWithTitle:@"正在保存..."];
-    [self updateUserInfo];
-    TPUserResultViewController *vc = [[TPUserResultViewController alloc]init];
-    [self.navigationController pushViewController: vc animated:YES];
+//    [self MBProgressWithTitle:@"正在保存..."];
+//    [self updateUserInfo];
+//    TPUserResultViewController *vc = [[TPUserResultViewController alloc]init];
+//    [self.navigationController pushViewController: vc animated:YES];
 }
 
 
@@ -109,6 +109,7 @@
 }
 
 -(void)updateUserInfo{
+    NSLog(@"updateUserINFO");
     NSString *sex = @"";
     NSString *sexSaved = [[TPHttpRequest appDelegate].userAccountDic objectForKey:@"userSex"];
     if ([sexSaved isEqualToString:@"男"])
@@ -117,7 +118,7 @@
     NSString *place = [[NSUserDefaults  standardUserDefaults] objectForKey:@"place"];
     NSString *locationStr = @"";
     if (place!=nil)
-    locationStr = [NSString stringWithFormat:@"&home=%@",[[NSUserDefaults  standardUserDefaults] objectForKey:@"place"]];
+    locationStr = [NSString stringWithFormat:@"home=%@",[[NSUserDefaults  standardUserDefaults] objectForKey:@"place"]];
     
     
 //    NSString *sendStr = [NSString stringWithFormat:@"authToken=%@&userId=%@&height=%@&weight=%@%@&birthday=%@",[theDic objectForKey:@"authToken"],[theDic objectForKey:@"id"],[delegateDic  objectForKey:@"userHeight"],[delegateDic  objectForKey:@"userWeight"],locationStr,[delegateDic objectForKey:@"userBirthday"]];
@@ -155,16 +156,18 @@
      [request setPostValue:[delegateDic  objectForKey:@"userWeight"] forKey:@"weight"];
      [request setPostValue:[delegateDic  objectForKey:@"userBirthday"] forKey:@"birthday"];
     [request setPostValue:sex forKey:@"sexual"];
-    if (locationStr.length!=0)
+    if (locationStr.length!=0){
+        NSString *str1 = [locationStr stringByReplacingOccurrencesOfString:@"," withString:@" "];
         [request setPostValue:locationStr forKey:@"home"];
+    }
     
    // [request setData:imageData forKey:@"tongueImage"];
-    [request addRequestHeader:@"authToken" value:@"c2ba5efeff5debe8fab44ba5160535a9"];
+    [request addRequestHeader:@"authToken" value:[theDic objectForKey:@"authToken"]];
     
     request.timeOutSeconds = 360;
     [request buildPostBody];
     request.tag =2;
-    [request setDelegate:self];
+    //[request setDelegate:self];
     [request startSynchronous];
     
     NSData *data = request.responseData;
@@ -180,7 +183,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:dic2 forKey:@"tongueDic"];
     //保存为用户注册成功后返回的数据
     [[NSUserDefaults standardUserDefaults] setObject:resultDic forKey:@"userRegisterDic"];
-
+    [TPHttpRequest appDelegate].tongueDic = [NSMutableDictionary dictionaryWithDictionary:dic2];
     
 }
 @end
